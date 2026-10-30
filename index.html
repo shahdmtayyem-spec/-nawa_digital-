@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نواة الرقمية | Nawa Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F6ECE0;--card:#FCF6EE;--ink:#3A2A21;--mute:#8A7566;--brand:#A0623F;--brand2:#7E4A2E;--line:#E6D5C3;--ok:#4C8A5B}
+*{box-sizing:border-box;margin:0}
+html,body{background:#EADBC9;font-family:Cairo,system-ui,sans-serif;color:var(--ink)}
+#app{max-width:440px;min-height:100vh;margin:0 auto;background:var(--bg);position:relative;padding-bottom:84px;box-shadow:0 0 40px rgba(90,50,20,.15)}
+header{display:flex;align-items:center;gap:10px;padding:16px 18px}
+header h2{font-size:18px;font-weight:700;flex:1}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--brand2);font-size:20px;line-height:1.1}
+.logo small{display:block;font-size:9px;letter-spacing:.2em;font-weight:600;color:var(--brand)}
+.back{background:none;border:0;font:inherit;font-size:22px;color:var(--brand2);cursor:pointer}
+.wrap{padding:0 18px}
+.hero{margin:0 18px;border-radius:20px;padding:26px 20px;background:linear-gradient(135deg,#C98B63,#8A5233);color:#fff8ef}
+.hero h1{font-size:24px;line-height:1.4;font-weight:800}
+.hero p{font-size:13px;margin-top:6px;opacity:.9}
+.search{display:flex;gap:8px;margin:16px 18px}
+input,select,textarea{width:100%;font:inherit;font-size:14px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+label{display:block;font-size:13px;font-weight:600;margin:14px 0 6px}
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:12px;background:var(--brand);color:#fff;font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.btn:hover{background:var(--brand2)}
+.btn.ghost{background:transparent;color:var(--brand2);border:1px solid var(--brand)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 18px 12px}
+.chip{flex:none;padding:8px 14px;border-radius:20px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.chip.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 18px}
+.pc{background:var(--card);border-radius:16px;padding:10px;border:1px solid var(--line);cursor:pointer;text-align:right}
+.cover{aspect-ratio:3/4;border-radius:10px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-weight:700;font-size:15px;color:#fff;line-height:1.4}
+.pc h4{font-size:13px;margin:8px 0 2px}
+.pc span{font-size:12px;color:var(--mute)}
+.price{font-weight:800;color:var(--brand2);font-size:15px}
+.sec{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 8px}
+.sec b{font-size:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:10px 18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0 18px 12px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 6px;text-align:center;font-size:11px;color:var(--mute)}
+.stats b{display:block;font-size:18px;color:var(--ink)}
+.row{display:flex;align-items:center;gap:12px;padding:14px 4px;border-bottom:1px solid var(--line);cursor:pointer;font-size:14px}
+.row:last-child{border:0}
+.row em{flex:1;font-style:normal}
+.steps{display:flex;justify-content:space-between;padding:0 24px 8px}
+.steps i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;background:var(--line);color:var(--mute);font-weight:700}
+.steps i.on{background:var(--brand);color:#fff}
+.nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:440px;display:flex;background:var(--card);border-top:1px solid var(--line);padding:8px 0 10px}
+.nav button{flex:1;background:none;border:0;font:inherit;font-size:11px;color:var(--mute);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px}
+.nav button.on{color:var(--brand2);font-weight:700}
+.nav svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7}
+.toast{position:fixed;bottom:96px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 18px;border-radius:20px;font-size:13px;z-index:9}
+.note{margin:12px 18px;padding:10px 12px;border-radius:12px;background:#F1DFC9;font-size:12px;color:var(--brand2)}
+.tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:10px;background:#DDEBDD;color:var(--ok)}
+.hint{font-size:12px;color:var(--mute);margin-top:6px}
+:focus-visible{outline:2px solid var(--brand2);outline-offset:2px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const COLORS=['#B5703F','#7E5A3C','#9C6B53','#6F7F5B','#A4553A','#8A6A4F'];
+const CATS=['الكل','كتب إلكترونية','دفاتر وقوالب','كورسات','أدوات إبداعية'];
+const DEMO=[
+ {id:1,t:'دفتر الخريف - نوت بوك',c:'دفاتر وقوالب',p:10,d:'دفتر أنيق بتصميم مستوحى من أجواء الخريف، 30 صفحة قابلة للطباعة بصيغة PDF مع غلاف مميز.',s:'شهد طيبم'},
+ {id:2,t:'كورس أساسيات اللغة الإنجليزية',c:'كورسات',p:29,d:'تأسيس لغة إنجليزية خطوة بخطوة للمرحلة الأساسية.',s:'شهد طيبم'},
+ {id:3,t:'قالب تصميم سوشيال ميديا',c:'أدوات إبداعية',p:12,d:'مجموعة قوالب جاهزة للتعديل لمنشورات إنستغرام.',s:'شهد طيبم'},
+ {id:4,t:'مجموعة ملصقات تعليمية',c:'كتب إلكترونية',p:8,d:'ملصقات تعليمية جاهزة للطباعة للصفوف الأولى.',s:'شهد طيبم'}];
+const LS={
+ get(k,f){try{const v=localStorage.getItem('nawa_'+k);return v?JSON.parse(v):f}catch(e){return f}},
+ set(k,v){try{localStorage.setItem('nawa_'+k,JSON.stringify(v))}catch(e){}}
+};
+let S={view:'home',cat:'الكل',q:'',pid:null,step:1,draft:{}};
+const prods=()=>[...DEMO,...LS.get('prods',[])];
+const user=()=>LS.get('user',null);
+const ic={home:'<path d="M3 11l9-8 9 8v10H3z"/>',heart:'<path d="M12 21s-8-5-8-11a4.5 4.5 0 018-3 4.5 4.5 0 018 3c0 6-8 11-8 11z"/>',book:'<path d="M4 4h12a4 4 0 014 4v12H8a4 4 0 01-4-4z"/>',user:'<circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 4-7 8-7s8 2 8 7"/>'};
+const LEAF='<svg width="34" height="34" viewBox="0 0 40 40"><path d="M6 34C4 18 14 6 34 5c1 20-9 31-24 30z" fill="#A0623F"/><path d="M8 33C16 24 22 17 30 9" stroke="#F6ECE0" stroke-width="2" fill="none"/></svg>';
+function go(v,x={}){Object.assign(S,{view:v},x);render();scrollTo(0,0)}
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.append(e);setTimeout(()=>e.remove(),2200)}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function card(p){return `<div class="pc" role="button" tabindex="0" onclick="go('product',{pid:${p.id}})"><div class="cover" style="background:${COLORS[p.id%6]}">${esc(p.t)}</div><h4>${esc(p.t)}</h4><span>${esc(p.c)}</span><div class="price">$${(+p.p).toFixed(2)}</div></div>`}
+function head(t,back){return `<header>${back?`<button class="back" aria-label="رجوع" onclick="go('${back}')">›</button>`:''}<h2>${t}</h2></header>`}
+function nav(){const it=[['home','الرئيسية','home'],['fav','المفضلة','heart'],['lib','مشترياتي','book'],['acc','حسابي','user']];
+ return `<nav class="nav">${it.map(([k,l,i])=>`<button class="${S.view===k?'on':''}" onclick="go('${k}')"><svg viewBox="0 0 24 24">${ic[i]}</svg>${l}</button>`).join('')}</nav>`}
+const NOTE='<div class="note">هذا نموذج تجريبي: البيانات تُحفظ في متصفحك فقط، ولا يوجد دفع أو رفع ملفات حقيقي.</div>';
+
+const V={
+home(){
+ const l=prods().filter(p=>(S.cat==='الكل'||p.c===S.cat)&&p.t.includes(S.q));
+ return `<header><div class="logo">${LEAF}<div>نواة الرقمية<small>NAWA DIGITAL</small></div></div></header>
+ <div class="hero"><h1>كل إبداعك الرقمي في مكان واحد</h1><p>دفاتر، كورسات، وقوالب جاهزة من صنّاع محتوى عرب.</p></div>
+ <div class="search"><input id="q" placeholder="ابحث عن منتج أو كورس" value="${esc(S.q)}" oninput="S.q=this.value;clearTimeout(window.t);window.t=setTimeout(()=>{render();document.getElementById('q').focus();document.getElementById('q').setSelectionRange(99,99)},300)"></div>
+ <div class="chips">${CATS.map(c=>`<button class="chip ${S.cat===c?'on':''}" onclick="S.cat='${c}';render()">${c}</button>`).join('')}</div>
+ <div class="sec"><b>منتجات مميزة</b></div>
+ ${l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<p class="hint" style="padding:0 18px">لا توجد منتجات بهذا البحث. جرّب تصنيفاً آخر.</p>'}${NOTE}`},
+product(){
+ const p=prods().find(x=>x.id===S.pid)||DEMO[0];
+ return `${head('تفاصيل المنتج','home')}<div class="wrap"><div class="cover" style="background:${COLORS[p.id%6]};aspect-ratio:4/3;font-size:22px">${esc(p.t)}</div>
+ <h3 style="margin:14px 0 2px">${esc(p.t)}</h3><span class="hint">${esc(p.c)} · البائعة: ${esc(p.s||'أنتِ')}</span>
+ <div class="price" style="font-size:22px;margin:10px 0">$${(+p.p).toFixed(2)}</div><p style="font-size:14px;line-height:1.9;color:var(--mute)">${esc(p.d)}</p><br>
+ <button class="btn" onclick="buy(${p.id})">إضافة إلى مشترياتي (تجريبي)</button></div>`},
+fav(){return `${head('المفضلة')}<div class="card hint">لم تضف أي منتج للمفضلة بعد. افتح منتجاً واضغط على القلب (قريباً).</div>${nav()}`},
+lib(){const ids=LS.get('lib',[]);const l=prods().filter(p=>ids.includes(p.id));
+ return `${head('مشترياتي')}${l.length?`<div class="grid">${l.map(card).join('')}</div>`:'<div class="card hint">مكتبتك فارغة. أضف منتجاً من الصفحة الرئيسية.</div>'}`},
+acc(){const u=user();if(!u)return V.login();
+ return `${head('حسابي')}<div class="card"><b>${esc(u.name)}</b><div class="hint">${esc(u.email)}</div></div>
+ <div class="card"><div class="row" onclick="go('seller')"><em>لوحة البائع</em>›</div><div class="row" onclick="go('lib')"><em>مشترياتي</em>›</div><div class="row" onclick="LS.set('user',null);go('home')"><em>تسجيل الخروج</em>›</div></div>${NOTE}`},
+login(){return `<div style="text-align:center;padding:30px 18px 6px">${LEAF}<h2 style="color:var(--brand2);margin:6px 0">نواة الرقمية</h2><p class="hint">مرحباً بك مجدداً</p></div>
+ <div class="wrap"><label>الاسم</label><input id="n" placeholder="مثال: شهد"><label>البريد الإلكتروني</label><input id="e" type="email" placeholder="example@mail.com" dir="ltr"><br><br>
+ <button class="btn" onclick="login()">تسجيل الدخول</button></div>${NOTE}`},
+seller(){const mine=LS.get('prods',[]);
+ return `${head('لوحة البائع','acc')}<div class="stats"><div><b>$0.00</b>إجمالي المبيعات</div><div><b>${mine.length}</b>عدد المنتجات</div><div><b>0</b>الطلبات</div></div>
+ <div class="wrap"><button class="btn" onclick="go('add',{step:1,draft:{}})">إضافة منتج جديد</button></div>
+ <div class="sec"><b>منتجاتي</b></div>${mine.length?`<div class="grid">${mine.map(card).join('')}</div>`:'<div class="card hint">لم تنشر أي منتج بعد. ابدأ بإضافة أول منتج.</div>'}`},
+add(){const d=S.draft,n=S.step;
+ const bar=`<div class="steps">${['المعلومات','الملفات','التسعير','النشر'].map((x,i)=>`<i class="${n>=i+1?'on':''}" title="${x}">${i+1}</i>`).join('')}</div>`;
+ let b='';
+ if(n===1)b=`<label>اسم المنتج</label><input id="f_t" value="${esc(d.t||'')}"><label>التصنيف</label><select id="f_c">${CATS.slice(1).map(c=>`<option ${d.c===c?'selected':''}>${c}</option>`).join('')}</select><label>الوصف</label><textarea id="f_d">${esc(d.d||'')}</textarea>`;
+ if(n===2)b=`<label>الملف الرئيسي (PDF, Word, Excel)</label><input type="file" id="f_f"><label>صورة الغلاف</label><input type="file" id="f_i" accept="image/*"><p class="hint">في النموذج التجريبي نحفظ أسماء الملفات فقط. الرفع الحقيقي يأتي مع الخادم.</p>`;
+ if(n===3)b=`<label>السعر بالدولار</label><input id="f_p" type="number" min="0" step="0.5" value="${d.p??''}"><p class="hint">اكتب 0 لمنتج مجاني.</p>`;
+ if(n===4)b=`<div class="card"><b>${esc(d.t)}</b><div class="hint">${esc(d.c)}</div><p style="font-size:13px;margin:8px 0">${esc(d.d)}</p><div class="price">$${(+d.p).toFixed(2)}</div></div>`;
+ return `${head('إضافة منتج جديد','seller')}${bar}<div class="wrap">${b}<br><button class="btn" onclick="next()">${n===4?'نشر المنتج':'التالي'}</button>${n>1?`<br><button class="btn ghost" onclick="S.step--;render()">السابق</button>`:''}</div>`}
+};
+function render(){
+ const v=V[S.view]();
+ document.getElementById('app').innerHTML=v+(S.view==='add'||S.view==='product'||S.view==='seller'?'':nav());
+}
+function login(){const n=document.getElementById('n').value.trim(),e=document.getElementById('e').value.trim();
+ if(!n||!e.includes('@'))return toast('اكتب اسمك وبريداً صحيحاً');LS.set('user',{name:n,email:e});go('acc')}
+function buy(id){const l=LS.get('lib',[]);if(!l.includes(id))l.push(id);LS.set('lib',l);toast('أُضيف إلى مشترياتك (تجريبي)')}
+function next(){const n=S.step,d=S.draft,g=i=>document.getElementById(i);
+ if(n===1){if(!g('f_t').value.trim()||!g('f_d').value.trim())return toast('أكمل الاسم والوصف');Object.assign(d,{t:g('f_t').value.trim(),c:g('f_c').value,d:g('f_d').value.trim()})}
+ if(n===3){const p=parseFloat(g('f_p').value);if(isNaN(p)||p<0)return toast('اكتب سعراً صحيحاً');d.p=p}
+ if(n===4){const m=LS.get('prods',[]);m.push({...d,id:Date.now(),s:(user()||{}).name||'أنتِ'});LS.set('prods',m);toast('تم نشر المنتج');return go('seller',{draft:{},step:1})}
+ S.step++;render()}
+render();
+</script>
+</body>
+</html>
